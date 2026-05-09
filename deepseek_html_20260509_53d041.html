@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>InmunoConsulta: Terapia con Inmunoglobulinas | Inmunodeficiencias</title>
+    <!-- Font Awesome 6 (gratuito, para iconos interactivos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts para tipografía médica profesional -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #eef2f7;
+            color: #1a2c3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* Encabezado con gradiente y efecto sutil */
+        .hero {
+            background: linear-gradient(135deg, #0b2b3b 0%, #1b4f6e 100%);
+            color: white;
+            padding: 2rem 2rem 1.8rem;
+            text-align: center;
+            border-bottom-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h1 i {
+            margin-right: 12px;
+            color: #ffd966;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .team-badge {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            background: rgba(255,255,255,0.15);
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* contenedor principal */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.8rem 3rem;
+        }
+
+        /* estilo de dos columnas flexibles */
+        .two-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .col {
+            flex: 1;
+            min-width: 280px;
+            background: white;
+            border-radius: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+
+        .col:hover {
+            transform: translateY(-4px);
+        }
+
+        .card-header {
+            background: #f0f6fa;
+            padding: 1.2rem 1.5rem;
+            border-bottom: 3px solid #2c7da0;
+        }
+
+        .card-header h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: #0f4c5f;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        /* divisiones para el apartado de referencias */
+        .ref-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .ref-item {
+            background: #fefefe;
+            border-left: 6px solid #3a9bd5;
+            padding: 1rem 1.2rem;
+            border-radius: 1rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            transition: all 0.2s;
+        }
+
+        .ref-item:hover {
+            background: #f9fdff;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+        }
+
+        .ref-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #155f7c;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.5rem;
+        }
+
+        .ref-desc {
+            color: #2c5368;
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .ref-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e6f4ff;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            text-decoration: none;
+            color: #136b8d;
+            font-weight: 500;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            transition: 0.2s;
+        }
+
+        .ref-link i {
+            font-size: 0.9rem;
+        }
+
+        .ref-link:hover {
+            background: #cbe5f5;
+            color: #084457;
+        }
+
+        /* sección informativa de IGIV */
+        .info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .info-block {
+            background: #ffffff;
+            border-radius: 1.2rem;
+            border: 1px solid #e2edf2;
+            overflow: hidden;
+        }
+
+        .info-title {
+            background: #f8fafc;
+            padding: 0.9rem 1.2rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #1e6f8c;
+            border-bottom: 1px solid #e0ecf2;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-content {
+            padding: 1rem 1.2rem;
+            font-size: 0.95rem;
+            color: #1e2f3a;
+        }
+
+        .info-content p, ul, table {
+            margin-bottom: 0.7rem;
+        }
+
+        ul, .info-content ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin: 0.4rem 0;
+        }
+
+        .ventajas-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .ventajas-table td, .ventajas-table th {
+            border: 1px solid #cbdbe2;
+            padding: 8px;
+            vertical-align: top;
+        }
+
+        .ventajas-table th {
+            background: #eef3f9;
+            font-weight: 600;
+        }
+
+        .badge {
+            background: #eef2fa;
+            border-radius: 30px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.75rem;
+            color: #1b6b8a;
+            display: inline-block;
+        }
+
+        .marcas-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.8rem;
+        }
+
+        .marca-card {
+            background: #f8fdff;
+            border-radius: 1rem;
+            padding: 0.8rem;
+            flex: 1;
+            min-width: 160px;
+            border: 1px solid #cde3ec;
+        }
+
+        hr {
+            margin: 0.6rem 0;
+            border-color: #e2edf2;
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #4b6e82;
+            border-top: 1px solid #cde0e8;
+            padding-top: 1.8rem;
+        }
+
+        @media (max-width: 800px) {
+            .hero h1 { font-size: 1.8rem; }
+            .container { padding: 0 1rem 2rem; }
+            .card-header h2 { font-size: 1.3rem; }
+        }
+
+        .img-placeholder {
+            background: #d9eaf3;
+            border-radius: 16px;
+            padding: 0.6rem;
+            text-align: center;
+            margin: 0.8rem 0;
+            font-size: 0.85rem;
+            color: #136b8d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+<div class="hero">
+    <h1><i class="fas fa-syringe"></i> InmunoGlobulinas IV</h1>
+    <p>Terapia de reemplazo e inmunomodulación en inmunodeficiencias<br>Herramienta digital para especialistas</p>
+    <div class="team-badge"><i class="fas fa-user-md"></i> Equipo: David Casas · Ángel Navi Contreras · Salvador Caudillo</div>
+</div>
+
+<div class="container">
+    <div class="two-columns">
+        <!-- APARTADO 1: REFERENCIAS BIBLIOGRÁFICAS para consulta sobre inmunodeficiencias -->
+        <div class="col">
+            <div class="card-header">
+                <h2><i class="fas fa-book-open"></i> Guías & Referencias</h2>
+            </div>
+            <div class="card-body">
+                <div class="ref-grid">
+                    <!-- 1. FUMEMI -->
+                    <div class="ref-item">
+                        <div class="ref-title"><i class="fas fa-hand-holding-heart"></i> FUMEMI</div>
+                        <div class="ref-desc"><strong>Origen: México</strong> — Fundación Mexicana de Inmunodeficiencias Primarias, A.C. Brinda información sobre errores innatos de la inmunidad, apoyo a pacientes, diagnóstico temprano y tratamiento en México. Ideal para conocer recursos locales y casos clínicos.</div>
+                        <a href="https://fumeni.org.mx/" target="_blank" class="ref-link"><i class="fas fa-external-link-alt"></i> Visitar sitio oficial FUMENI</a>
+                    </div>
+                    <!-- 2. Jeffrey Modell Foundation -->
+                    <div class="ref-item">
+                        <div class="ref-title"><i class="fas fa-globe-americas"></i> Jeffrey Modell Foundation</div>
+                        <div class="ref-desc"><strong>Origen: Internacional (EE.UU.)</strong> — Organización líder dedicada a las inmunodeficiencias primarias. Proporciona recursos educativos, redes de especialistas, investigación y programas de sensibilización global. Referencia esencial para actualización médica.</div>
+                        <a href="https://www.jeffreymodellfoundation.org/" target="_blank" class="ref-link"><i class="fas fa-external-link-alt"></i> Visitar Jeffrey Modell Foundation</a>
+                        <div class="badge" style="margin-top:6px;"><i class="fas fa-info-circle"></i> Nota: El enlace oficial principal es jmfoundation.org (accesible)</div>
+                    </div>
+                    <!-- 3. Immune Deficiency Foundation (IDF) -->
+                    <div class="ref-item">
+                        <div class="ref-title"><i class="fas fa-shield-virus"></i> Immune Deficiency Foundation</div>
+                        <div class="ref-desc"><strong>Origen: Estados Unidos</strong> — Principal entidad para pacientes y médicos sobre inmunodeficiencias. Contiene guías clínicas, webinars, manuales de tratamiento con IGIV, y herramientas para especialistas. Altamente confiable.</div>
+                        <a href="https://primaryimmune.org/" target="_blank" class="ref-link"><i class="fas fa-external-link-alt"></i> Visitar IDF (primaryimmune.org)</a>
+                    </div>
+                </div>
+                <!-- Imagen decorativa alusiva -->
+                <div class="img-placeholder">
+                    <i class="fas fa-microscope fa-2x"></i> <span>Investigación clínica y apoyo multidisciplinario</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- APARTADO 2: TERAPIA INMUNOGLOBULINAS VÍA INTRAVENOSA (información completa) -->
+        <div class="col">
+            <div class="card-header">
+                <h2><i class="fas fa-hand-holding-medical"></i> Terapia IGIV</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-section">
+                    <!-- Descripción -->
+                    <div class="info-block">
+                        <div class="info-title"><i class="fas fa-info-circle"></i> ¿Qué es la terapia con inmunoglobulinas intravenosas?</div>
+                        <div class="info-content">
+                            <p>La <strong>Inmunoglobulina Intravenosa (IGIV)</strong> es una preparación purificada de anticuerpos IgG policlonales obtenida del plasma de miles de donadores sanos. Se emplea como <strong>terapia de reemplazo</strong> en pacientes con déficit de anticuerpos (inmunodeficiencias humorales) y como <strong>inmunomodulador</strong> en enfermedades autoinmunes e inflamatorias. Las indicaciones abarcan desde inmunodeficiencias primarias hasta púrpura trombocitopénica idiopática, síndrome de Guillain-Barré, enfermedad de Kawasaki, entre otras.</p>
+                        </div>
+                    </div>
+                    <!-- Aplicaciones (enfermedades) -->
+                    <div class="info-block">
+                        <div class="info-title"><i class="fas fa-stethoscope"></i> Aplicaciones clínicas</div>
+                        <div class="info-content">
+                            <ul>
+                                <li><strong>Inmunodeficiencias primarias</strong> (Agammaglobulinemia de Bruton, inmunodeficiencia común variable, etc.)</li>
+                                <li><strong>Púrpura trombocitopénica inmune (PTI)</strong></li>
+                                <li><strong>Enfermedad de Kawasaki</strong></li>
+                                <li><strong>Síndrome de Guillain-Barré</strong> y polineuropatía desmielinizante inflamatoria crónica</li>
+                                <li><strong>Lupus eritematoso sistémico, artritis reumatoide</strong> (como terapia adyuvante en casos refractarios)</li>
+                                <li><strong>Pénfigo, síndrome de Stevens-Johnson</strong> y otras enfermedades autoinmunes</li>
+                                <li><strong>Infecciones graves en pacientes con inmunodeficiencia secundaria</strong> (VIH pediátrico, trasplante de médula ósea)</li>
+                            </ul>
+                            <p><span class="badge"><i class="fas fa-chart-line"></i> Dosis habitual: Reemplazo 400-600 mg/kg cada 3-4 semanas; Efecto inmunomodulador: 1-2 g/kg.</span></p>
+                        </div>
+                    </div>
+                    <!-- vías de administración: Intravenosa, IM, subcutánea (énfasis) -->
+                    <div class="info-block">
+                        <div class="info-title"><i class="fas fa-route"></i> Vías de administración</div>
+                        <div class="info-content">
+                            <table class="ventajas-table">
+                                <thead>
+                                    <tr><th>Vía</th><th>Características / Procedimiento</th><th>Ventajas</th><th>Desventajas</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Intravenosa (IGIV)</strong></td>
+                                        <td>Infusión hospitalaria o centro de infusiones. Requiere acceso venoso. Velocidad controlada.</td>
+                                        <td>Alcanza niveles plasmáticos altos rápidamente; ideal en trastornos de coagulación; dosis completas.</td>
+                                        <td>Necesita personal capacitado; posible reacciones durante infusión; costos logísticos.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Subcutánea (IGSC)</strong></td>
+                                        <td>Administración domiciliaria tras capacitación; microinfusión en tejido subcutáneo.</td>
+                                        <td>Autonomía del paciente, evita hospitalización, niveles estables, menor incidencia de efectos sistémicos.</td>
+                                        <td>Requiere adherencia y entrenamiento; múltiples puntos de punción; dosis máxima por sitio limitada.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Intramuscular (IM)</strong></td>
+                                        <td>Clásica para inmunoglobulinas estándar, actualmente en desuso terapéutico.</td>
+                                        <td>Fácil aplicación en atención primaria.</td>
+                                        <td>Volumen máximo reducido, dolor local, absorción errática, no apta para altas dosis.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p><i class="fas fa-syringe"></i> La vía <strong>intravenosa</strong> es la más estudiada para terapia de reemplazo e inmunomodulación. La subcutánea crece como alternativa para enfermedades crónicas.</p>
+                        </div>
+                    </div>
+                    <!-- Obtención de inmunoglobulinas -->
+                    <div class="info-block">
+                        <div class="info-title"><i class="fas fa-flask"></i> Obtención y procesamiento</div>
+                        <div class="info-content">
+                            <p>La IGIV se obtiene a partir de <strong>plasma de donadores sanos</strong> (aprox. 10,000 donadores por lote). El fraccionamiento por método de Cohn (etanol en frío) seguido de cromatografía, tratamiento con solventes/detergentes, pasteurización y ultrafiltración. Se estabiliza con azúcares, aminoácidos o albúmina para evitar agregados moleculares que podrían desencadenar efectos adversos. El proceso elimina patógenos y productos que activan el complemento.</p>
+                            <div class="img-placeholder"><i class="fas fa-vial"></i> <span>Plasma → Fraccionamiento → Purificación → Virus inactivación → Formulación IGIV</span></div>
+                        </div>
+                    </div>
+                    <!-- Efectos adversos y cómo evitarlos -->
+                    <div class="info-block">
+                        <div class="info-title"><i class="fas fa-exclamation-triangle"></i> Efectos adversos & prevención</div>
+                        <div class="info-content">
+                            <p><strong>Reacciones comunes (no anafilácticas):</strong> cefalea, náusea, fatiga, fiebre, escalofríos, mialgias, generalmente aparecen en los primeros 30 minutos. <strong>Cómo evitarlas:</strong> reducir la velocidad de infusión, premedicar con antihistamínicos, analgésicos/antipiréticos e hidratación adecuada.</p>
+                            <p><strong>Reacciones anafilácticas:</strong> disnea, urticaria, hipotensión (raras). Suspender infusión de inmediato y tratar según protocolo de anafilaxia.</p>
+                            <p><span class="badge"><i class="fas fa-tachometer-alt"></i> Consejo: iniciar infusión a ritmo lento (0.5-1 mg/kg/min) e incrementar gradualmente según tolerancia.</span></p>
+                        </div>
+                    </div>
+                    <!-- Marcas en México e internacional + costos/cantidad -->
+                    <div class="info-block">
+                        <div class="info-title"><i class="fas fa-boxes"></i> Marcas de IGIV (México e Internacional)</div>
+                        <div class="info-content">
+                            <div class="marcas-grid">
+                                <div class="marca-card">
+                                    <i class="fas fa-capsules"></i> <strong>Privigen®</strong> (CSL Behring)<br>
+                                    <span class="badge">Internacional / México</span><br>
+                                    Presentación: 50, 100 mL. Costo aprox:  $12,000 - $25,000 MXN por gramo (dependiendo dosis)
+                                </div>
+                                <div class="marca-card">
+                                    <i class="fas fa-capsules"></i> <strong>Gammaglobulina®</strong> (Grifols)<br>
+                                    <span class="badge">Flebogamma®/Gammagard®</span><br>
+                                    Precio promedio por frasco 5g: 8,000-15,000 MXN
+                                </div>
+                                <div class="marca-card">
+                                    <i class="fas fa-capsules"></i> <strong>Octagam®</strong> (Octapharma)<br>
+                                    <span class="badge">Disponible en México</span><br>
+                                    10% solución. Costo variable por gramo ~ $9,000-18,000 MXN
+                                </div>
+                                <div class="marca-card">
+                                    <i class="fas fa-globe"></i> <strong>Internacional:</strong> Gammaplex®, Kiovig®, Hizentra® (SCIG). Costos desde $100 USD/gramo hasta >$400 USD.
+                                </div>
+                            </div>
+                            <hr>
+                            <p><i class="fas fa-dollar-sign"></i> <strong>Consideraciones de costo en México:</strong> el precio varía según negociación institucional (IMSS, ISSSTE, privado). Un tratamiento de reemplazo mensual (400 mg/kg para 70 kg = 28g) puede costar entre $50,000 a $120,000 MXN. La terapia inmunomoduladora en dosis altas (2g/kg) incrementa considerablemente. Los sistemas de salud pública pueden cubrirlo bajo lineamientos específicos.</p>
+                            <p><span class="badge"><i class="fas fa-chart-simple"></i> Cantidad anual mundial: ~200 toneladas de inmunoglobulinas, con crecimiento sostenido.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección extra con resumen de mecanismos de acción según el PDF (interactivo sutil) -->
+    <div style="margin-top: 2rem; background: #e2f0f5; border-radius: 1.5rem; padding: 1.2rem 2rem;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
+            <div><i class="fas fa-microbe fa-2x" style="color:#1f6d8c;"></i> <strong style="font-size: 1.1rem;">Mecanismos de acción clave IGIV</strong><br>
+                <span style="font-size:0.9rem;">Neutralización de toxinas, opsonización, saturación de FcRn, modulación de citocinas, bloqueo de autoAc.</span>
+            </div>
+            <div><i class="fas fa-chart-simple"></i> <strong>Efectos adversos prevenibles:</strong> Infusión lenta + premedicación</div>
+            <div><i class="fas fa-file-alt"></i> Basado en lineamientos oficiales y la práctica clínica.</div>
+        </div>
+    </div>
+
+    <footer>
+        <i class="fas fa-dna"></i> Información con fines de actualización médica. Consulte siempre fuentes oficiales y ficha técnica.  <br>
+        © 2025 - Herramienta interactiva desarrollada por David Casas, Ángel Navi Contreras, Salvador Caudillo.  
+    </footer>
+</div>
+
+<!-- pequeño script para interacciones suaves de hover ya cubiertas en CSS -->
+</body>
+</html>
